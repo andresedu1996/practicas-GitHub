@@ -4,11 +4,10 @@
   "description": "Este repositorio contiene el material práctico para aprender sobre CI/CD pipelines usando GitHub Actions, con enfoque en conceptos de sistemas operativos.",
   "main": "index.js",
   "scripts": {
-"start": "node proyecto-demo/index.js",
-"test": "node proyecto-demo/test.js",
-"lint": "eslint proyecto-demo"
-}
-,
+    "start": "node proyecto-demo/index.js",
+    "test": "node proyecto-demo/test.js",
+    "lint": "eslint proyecto-demo"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andresedu1996/practicas-GitHub.git"
@@ -19,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/andresedu1996/practicas-GitHub/issues"
   },
-  "homepage": "https://github.com/andresedu1996/practicas-GitHub#readme"
+  "homepage": "https://github.com/andresedu1996/practicas-GitHub#readme",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0"
+  }
 }
