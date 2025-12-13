@@ -1,0 +1,23 @@
+{
+  "name": "documentacion-actions",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene el material práctico para aprender sobre CI/CD pipelines usando GitHub Actions, con enfoque en conceptos de sistemas operativos.",
+  "main": "index.js",
+  "scripts": {
+"start": "node proyecto-demo/index.js",
+"test": "node proyecto-demo/test.js",
+"lint": "eslint proyecto-demo"
+}
+,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresedu1996/practicas-GitHub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andresedu1996/practicas-GitHub/issues"
+  },
+  "homepage": "https://github.com/andresedu1996/practicas-GitHub#readme"
+}

@@ -1,4 +1,4 @@
-const { suma, resta, multiplicacion, division } = require('./index.js');
+const { suma, resta, multiplicacion, division, potencia } = require('./index.js');
 
 function test() {
     let passed = 0;
@@ -106,6 +106,23 @@ function test() {
             failed++;
             tests.push({ name: "División por cero", status: "❌" });
         }
+    }
+    
+     // Test 7: Potencia
+    try {
+        if (potencia(2, 3) === 8) {
+            console.log("✅ Test 7 pasó: potencia(2, 3) = 8");
+            passed++;
+            tests.push({ name: "Potencia", status: "✅" });
+        } else {
+            console.log("❌ Test 7 falló: potencia(2, 3) debería ser 8");
+            failed++;
+            tests.push({ name: "Potencia", status: "❌" });
+        }
+    } catch (e) {
+        console.log("❌ Test 7 error:", e.message);
+        failed++;
+        tests.push({ name: "Potencia", status: "❌" });
     }
 
     console.log("\n" + "=".repeat(50));
