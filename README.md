@@ -238,11 +238,28 @@ Cuando ves los logs de un workflow, observa:
 ## Preguntas para Reflexionar
 
 1. ¿Cómo se relacionan los jobs de GitHub Actions con los procesos en un SO?
+
+R= Los jobs de GitHub Actions se pueden comparar directamente con los procesos en un sistema operativo. Cada job se ejecuta de forma aislada en un runner independiente, con su propio espacio de memoria, sistema de archivos y entorno de ejecución, sin compartir estado con otros jobs. De manera similar a como un sistema operativo crea y gestiona procesos para ejecutar programas, GitHub Actions crea y planifica jobs para ejecutar tareas dentro de un workflow. Los steps dentro de un job se ejecutan de forma secuencial, lo que puede compararse con subprocesos o instrucciones dentro de un mismo proceso.
+
 2. ¿Qué pasa con el filesystem cuando termina un job?
+
+R= Cuando un job de GitHub Actions termina su ejecución, el sistema de archivos asociado a ese runner se elimina por completo. Esto significa que todos los archivos generados durante el job, incluyendo binarios, logs o resultados temporales, se pierden una vez que el job finaliza. Este comportamiento es similar a lo que ocurre en un sistema operativo cuando un proceso termina y el sistema libera la memoria y los recursos utilizados. Por esta razón, GitHub Actions proporciona mecanismos como artifacts para guardar archivos que se necesiten después de la ejecución del job.
+
 3. ¿Por qué es importante testear en múltiples sistemas operativos?
+
+R= Probar el software en múltiples sistemas operativos es fundamental porque cada uno maneja de manera distinta aspectos como rutas de archivos, permisos, variables de entorno, sensibilidad a mayúsculas y minúsculas, y dependencias del sistema. Un programa que funciona correctamente en Linux puede fallar en Windows o macOS debido a estas diferencias. Al ejecutar los tests en distintos sistemas operativos mediante matrices en GitHub Actions, se asegura que el software sea portable, robusto y compatible con los entornos reales donde será ejecutado.
+
 4. ¿Cómo maneja GitHub Actions la concurrencia de workflows?
+
+R= GitHub Actions gestiona la concurrencia de workflows y jobs de forma similar a como un sistema operativo administra múltiples procesos en ejecución. El servicio utiliza un planificador que asigna jobs a runners disponibles y permite la ejecución en paralelo de múltiples workflows, siempre respetando los límites de recursos y las configuraciones del repositorio. Además, GitHub Actions ofrece mecanismos para controlar la concurrencia, evitando que ciertos workflows se ejecuten simultáneamente y previniendo conflictos, lo cual es comparable al control de concurrencia y sincronización de procesos en un sistema operativo.
+
 5. ¿Qué recursos del sistema usa un runner?
+
+R= Un runner de GitHub Actions utiliza recursos fundamentales del sistema, como CPU, memoria RAM, almacenamiento en disco, red y variables de entorno. En el caso de los runners hospedados por GitHub, estos recursos provienen de máquinas virtuales que ejecutan sistemas Linux, Windows o macOS con límites predefinidos. En runners auto-hospedados, los jobs utilizan directamente los recursos del sistema anfitrión. Este uso de recursos es equivalente a la ejecución de procesos en un sistema operativo, que consumen y liberan recursos conforme se ejecutan y finalizan.
+
 6. ¿Cómo se comunican los procesos en un pipeline de CI/CD?
+
+R=En un pipeline de CI/CD, los procesos no se comunican de forma directa como mediante mecanismos clásicos de IPC, sino a través de medios controlados por la plataforma. GitHub Actions permite la comunicación mediante variables de entorno, outputs entre steps, artifacts y cachés compartidas. Estos mecanismos funcionan de manera similar a la comunicación entre procesos en un sistema operativo mediante variables de entorno, archivos compartidos o flujos de datos, permitiendo coordinar la ejecución de tareas dentro del pipeline sin romper el aislamiento entre jobs.
 
 ## Recursos Adicionales
 
