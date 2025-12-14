@@ -26,5 +26,15 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Test
-        run: npm test
+      - name: Test (logged)
+        shell: bash
+        run: |
+          npm test > test.log 2>&1
+          cat test.log
+
+      - name: Upload test log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-log-${{ matrix.os }}-node-${{ matrix.node }}
+          path: test.log
